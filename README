@@ -99,4 +99,3 @@ Windows XP/7:
 
 6) Compile and edit in Visual Studio. If you need to add new files, add them to qgroundcontrol.pro and re-run `qmake -tp vc qgroundcontrol.pro`
 
-
