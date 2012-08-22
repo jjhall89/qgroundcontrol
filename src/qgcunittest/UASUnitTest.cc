@@ -392,7 +392,9 @@ void UASUnitTest::signalIdUASLink_test()
     QCOMPARE(b->getName(), QString("serial port COM 18"));
     QCOMPARE(c->getName(), QString("serial port COM 19"));
     QCOMPARE(d->getName(), QString("serial port COM 20"));
-
+    
+    //The links must be deleted otherwise they will stay in the LinkManager
+    //because instance is static.
     LinkManager::instance()->removeLink(myLink4);
     delete myLink4;
     LinkManager::instance()->removeLink(myLink3);

@@ -69,6 +69,9 @@ LinkManager::~LinkManager()
     }
 }
 
+/**
+* Add the link to the link manager. 
+*/
 void LinkManager::add(LinkInterface* link)
 {
     if (!links.contains(link))
