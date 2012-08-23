@@ -395,6 +395,9 @@ contains(DEPENDENCIES_PRESENT, protobuf):contains(MAVLINK_CONF, pixhawk) {
         src/ui/map3D/ObstacleGroupNode.h \
         src/ui/map3D/GLOverlayGeode.h
 }
+
+#freenect is a library for the kinect. For more information go to:
+# http://openkinect.org/wiki/Main_Page.
 contains(DEPENDENCIES_PRESENT, libfreenect) { 
     message("Including headers for libfreenect")
     
@@ -515,6 +518,10 @@ SOURCES += src/main.cc \
 # Enable Google Earth only on Mac OS and Windows with Visual Studio compiler
 macx|macx-g++|macx-g++42|win32-msvc2008|win32-msvc2010::SOURCES += src/ui/map3D/QGCGoogleEarthView.cc
 
+#OSG - OpenScenceGraph. Briefly, it is a toolkit for 3D graphics. OSGEarth will generate terrain for
+#OSG to use. These libraries are used to create the 3D map widgets. For more information go to 
+#http://www.openscencegraph.org/projects/osg.
+#For information on OSGEarth go to: http://osgearth.org/
 # Enable OSG only if it has been found
 contains(DEPENDENCIES_PRESENT, osg) { 
     message("Including sources for OpenSceneGraph")
@@ -569,6 +576,8 @@ contains(DEPENDENCIES_PRESENT, libfreenect) {
 RESOURCES += qgroundcontrol.qrc
 
 # Include RT-LAB Library
+#Opal RT is for development. Run hardware-in-the-loop (HIL) simulations. 
+#For more information go to: http://www.opal-rt.com/
 win32:exists(src/lib/opalrt/OpalApi.h):exists(C:/OPAL-RT/RT-LAB7.2.4/Common/bin) { 
     message("Building support for Opal-RT")
     LIBS += -LC:/OPAL-RT/RT-LAB7.2.4/Common/bin \
